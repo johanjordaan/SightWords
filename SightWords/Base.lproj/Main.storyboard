@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9bd-RF-zhi">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="Wbn-Kv-OxH">
+            <objects>
+                <viewController id="9bd-RF-zhi" customClass="MainViewController" customModule="SightWords" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dkr-v5-icB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAJ-OV-DTr">
+                                <rect key="frame" x="164" y="424" width="86" height="48"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onClick:" destination="9bd-RF-zhi" eventType="touchUpInside" id="e7j-Tt-7Of"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DAJ-OV-DTr" firstAttribute="centerX" secondItem="dkr-v5-icB" secondAttribute="centerX" id="UNn-nN-e9d"/>
+                            <constraint firstItem="DAJ-OV-DTr" firstAttribute="centerY" secondItem="dkr-v5-icB" secondAttribute="centerY" id="efn-1O-t37"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ysK-tS-gTP"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="start" customClass="SegueLeft" customModule="SightWords" customModuleProvider="target" id="Opy-T5-2jN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XDJ-Sc-zhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-228" y="129"/>
+        </scene>
+        <!--Left View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LeftViewController" customModule="SightWords" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PcM-84-6x0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="os0-bd-Xfr"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYL-UP-TiO" userLabel="LeftWordButton">
+                                <rect key="frame" x="97" y="404" width="221" height="89"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.4240986939488427" green="1" blue="0.16754870729235716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="PcM-84-6x0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0NG-Ay-eid"/>
+                            <constraint firstItem="xYL-UP-TiO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JQh-xH-9FR"/>
+                            <constraint firstItem="PcM-84-6x0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ygb-1V-b4o"/>
+                            <constraint firstAttribute="trailing" secondItem="PcM-84-6x0" secondAttribute="trailing" id="mBk-gz-90C"/>
+                            <constraint firstItem="xYL-UP-TiO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="97" id="pe8-1v-uH1"/>
+                            <constraint firstItem="PcM-84-6x0" firstAttribute="centerX" secondItem="xYL-UP-TiO" secondAttribute="centerX" id="z8t-PD-btL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="navBar" destination="os0-bd-Xfr" id="rn4-Mj-x6H"/>
+                        <outlet property="wordButton" destination="xYL-UP-TiO" id="Z1n-ob-GUZ"/>
+                        <segue destination="Pea-1S-wS8" kind="custom" identifier="LR_L" customClass="SegueRight" customModule="SightWords" customModuleProvider="target" id="P2D-Tm-ps5"/>
+                        <segue destination="Pea-1S-wS8" kind="custom" identifier="LR_R" customClass="SegueLeft" customModule="SightWords" customModuleProvider="target" id="DIw-sU-Yz9"/>
+                        <segue destination="Pea-1S-wS8" kind="show" identifier="LR_U" id="RsR-tj-TzW"/>
+                        <segue destination="9bd-RF-zhi" kind="custom" identifier="backL" customClass="SegueRight" customModule="SightWords" customModuleProvider="target" id="opq-Jd-hRv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="786.95652173913049" y="128.57142857142856"/>
+        </scene>
+        <!--Right View Controller-->
+        <scene sceneID="hpA-TY-nBI">
+            <objects>
+                <viewController id="Pea-1S-wS8" customClass="RightViewController" customModule="SightWords" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pfB-Sz-l3Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIJ-Jn-gb9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="zlk-55-kxW"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qll-20-xYe" userLabel="RightWordButton">
+                                <rect key="frame" x="97" y="404" width="221" height="89"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.35010365691829592" blue="0.94219168215800608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lIJ-Jn-gb9" firstAttribute="centerX" secondItem="qll-20-xYe" secondAttribute="centerX" id="HT8-YC-bFc"/>
+                            <constraint firstItem="qll-20-xYe" firstAttribute="leading" secondItem="fp3-Z5-4RB" secondAttribute="leading" constant="97" id="Idf-O1-f56"/>
+                            <constraint firstItem="lIJ-Jn-gb9" firstAttribute="leading" secondItem="pfB-Sz-l3Q" secondAttribute="leading" id="RZm-BM-Qp1"/>
+                            <constraint firstAttribute="trailing" secondItem="lIJ-Jn-gb9" secondAttribute="trailing" id="TfM-6z-VX0"/>
+                            <constraint firstItem="qll-20-xYe" firstAttribute="centerY" secondItem="pfB-Sz-l3Q" secondAttribute="centerY" id="aNJ-dk-JkL"/>
+                            <constraint firstItem="lIJ-Jn-gb9" firstAttribute="top" secondItem="fp3-Z5-4RB" secondAttribute="top" id="agg-HX-oLn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fp3-Z5-4RB"/>
+                    </view>
+                    <connections>
+                        <outlet property="navBar" destination="zlk-55-kxW" id="lM0-wF-iJr"/>
+                        <outlet property="wordButton" destination="qll-20-xYe" id="vSV-TQ-Rp7"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="RL_R" customClass="SegueLeft" customModule="SightWords" customModuleProvider="target" id="pwt-tG-bdJ"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="RL_L" customClass="SegueRight" customModule="SightWords" customModuleProvider="target" id="Z9t-Ht-a75"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="RL_U" id="UpP-sA-aLw"/>
+                        <segue destination="9bd-RF-zhi" kind="show" identifier="backR" id="hPL-kr-6h9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eAG-6h-pnI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1726.0869565217392" y="128.57142857142856"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="RsR-tj-TzW"/>
+        <segue reference="pwt-tG-bdJ"/>
+        <segue reference="hPL-kr-6h9"/>
+    </inferredMetricsTieBreakers>
+</document>

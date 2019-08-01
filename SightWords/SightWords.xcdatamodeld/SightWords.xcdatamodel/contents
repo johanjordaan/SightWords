@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Buckets" representedClassName="Buckets" syncable="YES" codeGenerationType="class">
+        <relationship name="links" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StudentBucketWords" inverseName="buckets" inverseEntity="StudentBucketWords" syncable="YES"/>
+    </entity>
+    <entity name="StudentBucketWords" representedClassName="StudentBucketWords" syncable="YES" codeGenerationType="class">
+        <relationship name="buckets" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Buckets" inverseName="links" inverseEntity="Buckets" syncable="YES"/>
+        <relationship name="students" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Studentsx" inverseName="links" inverseEntity="Studentsx" syncable="YES"/>
+        <relationship name="words" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Words" inverseName="links" inverseEntity="Words" syncable="YES"/>
+    </entity>
+    <entity name="Studentsx" representedClassName="Studentsx" syncable="YES" codeGenerationType="class">
+        <attribute name="avatar" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="links" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StudentBucketWords" inverseName="students" inverseEntity="StudentBucketWords" syncable="YES"/>
+    </entity>
+    <entity name="Words" representedClassName="Words" syncable="YES" codeGenerationType="class">
+        <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="links" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StudentBucketWords" inverseName="words" inverseEntity="StudentBucketWords" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Words" positionX="-194.46875" positionY="85.40625" width="128" height="88"/>
+        <element name="Studentsx" positionX="-109.87109375" positionY="-61.1171875" width="128" height="88"/>
+        <element name="Buckets" positionX="114.72265625" positionY="-44.50390625" width="128" height="58"/>
+        <element name="StudentBucketWords" positionX="-5.44921875" positionY="44.2578125" width="128" height="88"/>
+    </elements>
+</model>
