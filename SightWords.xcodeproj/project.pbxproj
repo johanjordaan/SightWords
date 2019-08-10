@@ -18,6 +18,7 @@
 		9816E8A522E91AF100A26C5E /* SegueLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A422E91AF100A26C5E /* SegueLeft.swift */; };
 		9816E8A722E91B5400A26C5E /* SegueRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A622E91B5400A26C5E /* SegueRight.swift */; };
 		9816E8A922E92BE800A26C5E /* LeftRightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A822E92BE800A26C5E /* LeftRightViewController.swift */; };
+		98A8C24222FD407300DDC501 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A8C24122FD407300DDC501 /* StudentViewController.swift */; };
 		98BB139822EFCD56006D228A /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BB139722EFCD56006D228A /* GameplayKit.framework */; };
 		98BB139D22EFCFCB006D228A /* SeededGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB139C22EFCFCB006D228A /* SeededGenerator.swift */; };
 		98BB139F22EFD01F006D228A /* SeededGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB139E22EFD01F006D228A /* SeededGeneratorTests.swift */; };
@@ -79,6 +80,7 @@
 		9816E8A422E91AF100A26C5E /* SegueLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueLeft.swift; sourceTree = "<group>"; };
 		9816E8A622E91B5400A26C5E /* SegueRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueRight.swift; sourceTree = "<group>"; };
 		9816E8A822E92BE800A26C5E /* LeftRightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftRightViewController.swift; sourceTree = "<group>"; };
+		98A8C24122FD407300DDC501 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
 		98BB139722EFCD56006D228A /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
 		98BB139C22EFCFCB006D228A /* SeededGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededGenerator.swift; sourceTree = "<group>"; };
 		98BB139E22EFD01F006D228A /* SeededGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededGeneratorTests.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				9816E8A422E91AF100A26C5E /* SegueLeft.swift */,
 				98D0C05C22F3F0E40044D0CB /* StudentsViewController.swift */,
 				98D0C05F22F3F6FA0044D0CB /* StudentCell.swift */,
+				98A8C24122FD407300DDC501 /* StudentViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98A8C24222FD407300DDC501 /* StudentViewController.swift in Sources */,
 				98BB139D22EFCFCB006D228A /* SeededGenerator.swift in Sources */,
 				9816E87A22E8374B00A26C5E /* SightWords.xcdatamodeld in Sources */,
 				98BFCD5322EFA17100AA111F /* SightWord.swift in Sources */,

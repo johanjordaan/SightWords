@@ -11,6 +11,7 @@ import UIKit
 class StudentsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var navBar: UINavigationItem!
     
     private let reuseIdentifier = "StudentCell"
     private let sectionInsets = UIEdgeInsets(top: 50.0,
@@ -24,12 +25,28 @@ class StudentsViewController: UIViewController {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        navBar.title = "xxx"
+        navBar.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(onAdd))
+
     }
+    
+    @objc func onAdd(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "AddStudent", sender: self)
+    }
+
     
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
      //   let name  = segue.identifier!
+        
+        if segue.identifier == "AddStudent"
+        {
+            if let destinationVC = segue.destination as? StudentViewController {
+                destinationVC.mode = StudentViewController.Mode.add
+            }
+        }
      }
 }
 
