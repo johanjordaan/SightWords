@@ -13,6 +13,18 @@ class StudentViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var actionButton: UIButton!
+    @IBAction func onClick(_ sender: Any) {
+        student!.name = name.text!
+        do {
+            if(mode==Mode.add) {
+                let _ = try Students.shared.add(newStudent: student!)
+            } else if(mode==Mode.edit) {
+                let _ = try Students.shared.update(student: student!)
+            }
+        } catch {
+        }
+        self.goBack()
+    }
 
     
     public enum Mode {
@@ -25,7 +37,7 @@ class StudentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navBar.title = "xxx"
+        navBar.title = student!.name
         navBar.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(onBack))
         
         if(mode == Mode.edit) {
@@ -50,24 +62,8 @@ class StudentViewController: UIViewController {
         self.goBack()
     }
 
-    @IBAction func onClick(_ sender: Any) {
-        student!.name = name.text!
-        do {
-            if(mode==Mode.add) {
-                let _ = try Students.shared.add(newStudent: student!)
-            } else if(mode==Mode.edit) {
-                let _ = try Students.shared.update(student: student!)
-            }
-        } catch {
-        }
-        self.goBack()
-    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        //   let name  = segue.identifier!
-        
         if segue.identifier == "BackFromEdit"
         {
             if let destinationVC = segue.destination as? MainViewController {

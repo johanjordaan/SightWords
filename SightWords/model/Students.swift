@@ -18,7 +18,7 @@ class StudentDOA {
         request.returnsObjectsAsFaults = false
         let result = try context.fetch(request)
         let retVal  = (result as! [NSManagedObject]).map {(dbStudent:NSManagedObject)->Student in
-            return Student(name:dbStudent.value(forKey: "name") as! String)
+            return Student(id:dbStudent.value(forKey: "id") as! String, name:dbStudent.value(forKey: "name") as! String)
         }
         return retVal
     }
@@ -53,6 +53,7 @@ class StudentDOA {
         let context = DataContext.shared.context
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DBStudents")
         request.returnsObjectsAsFaults = false
+        request.predicate = NSPredicate(format:"id=%@",student.id)
         let dbStudents = try context.fetch(request)
         for dbStudent in dbStudents as! [NSManagedObject] {
             dbStudent.setValue(student.name, forKey: "name")
@@ -66,6 +67,12 @@ class StudentDOA {
 class Student {
     var id:String
     var name:String
+    
+    
+    public init(id:String,name:String) {
+        self.id = id
+        self.name = name
+    }
     
     public init(name:String) {
         self.id = NSUUID().uuidString

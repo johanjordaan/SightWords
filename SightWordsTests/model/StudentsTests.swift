@@ -51,16 +51,17 @@ class StudentsTests: XCTestCase {
 
     func testUpdate() {
         do {
-            let students = try Students.shared.getAll()
-            XCTAssertEqual(students.count,0)
-            let newStudent = Student(name:"Abigail")
-            let students2 = try Students.shared.add(newStudent: newStudent)
-            XCTAssertEqual(students2.count,1)
-            XCTAssertEqual(students2[0].name,"Abigail")
-            newStudent.name = "Lily"
-            let students3 = try Students.shared.update(student: newStudent)
-            XCTAssertEqual(students3.count,1)
-            XCTAssertEqual(students3[0].name,"Lily")
+            let abigail = Student(name:"Abigai")
+            let lily = Student(name:"Lily")
+            let _ = try Students.shared.add(newStudent: abigail)
+            let _ = try Students.shared.add(newStudent: lily)
+            abigail.name = "Abigail"
+            let _ = try Students.shared.update(student: abigail)
+
+            var students = try Students.shared.getAll()
+            XCTAssertEqual(students.count,2)
+            XCTAssertEqual(students[0].name,"Abigail")
+            XCTAssertEqual(students[1].name,"Lily")
         } catch {
             XCTFail()
         }
