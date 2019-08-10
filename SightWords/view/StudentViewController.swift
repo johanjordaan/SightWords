@@ -11,15 +11,17 @@ import UIKit
 class StudentViewController: UIViewController {
 
     @IBOutlet weak var navBar: UINavigationItem!
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var actionButton: UIButton!
+
     
     public enum Mode {
         case edit
         case add
     }
     public var mode = Mode.edit;
+    public var student:Student?
     
-    @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var actionButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +34,8 @@ class StudentViewController: UIViewController {
             actionButton.setTitle("Add",for: .normal)
         }
         
+        
+        name.text = student!.name
     }
 
     func goBack() {
@@ -47,20 +51,30 @@ class StudentViewController: UIViewController {
     }
 
     @IBAction func onClick(_ sender: Any) {
-        // Update user
+        student!.name = name.text!
+        do {
+            if(mode==Mode.add) {
+                let _ = try Students.shared.add(newStudent: student!)
+            } else if(mode==Mode.edit) {
+                let _ = try Students.shared.update(student: student!)
+            }
+        } catch {
+        }
         self.goBack()
     }
 
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        //   let name  = segue.identifier!
+        
+        if segue.identifier == "BackFromEdit"
+        {
+            if let destinationVC = segue.destination as? MainViewController {
+                destinationVC.student = student
+            }
+        } else if segue.identifier == "BackFromAdd" {
+        }
     }
-    */
-
+    
 }

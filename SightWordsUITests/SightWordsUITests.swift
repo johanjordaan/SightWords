@@ -28,9 +28,9 @@ class SightWordsUITests: XCTestCase {
 
     func testExample() {
     
-        let app = XCUIApplication()
-        app.buttons["Button"].tap()
-        app.navigationBars["xxx"].buttons["Back"].tap()
+        //let app = XCUIApplication()
+        //app.buttons["Button"].tap()
+        //app.navigationBars["xxx"].buttons["Back"].tap()
         
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

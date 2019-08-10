@@ -10,12 +10,13 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-        
     @IBOutlet weak var navBar: UINavigationItem!
+    public var student:Student?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navBar.title = "xxx"
+        navBar.title = student!.name
         navBar.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(onBack))
         navBar.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(onEdit))
 
@@ -43,6 +44,7 @@ class MainViewController: UIViewController {
         {
             if let destinationVC = segue.destination as? StudentViewController {
                 destinationVC.mode = StudentViewController.Mode.edit
+                destinationVC.student = student
             }
         }
     }

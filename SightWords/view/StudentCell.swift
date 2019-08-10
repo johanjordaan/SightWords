@@ -11,4 +11,5 @@ import UIKit
 class StudentCell: UICollectionViewCell {
     @IBOutlet weak var Name: UILabel!
     
+    public var student:Student?
 }

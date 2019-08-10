@@ -193,7 +193,7 @@
                                         <size key="customSize" width="300" height="200"/>
                                         <connections>
                                             <outlet property="Name" destination="eGv-tb-eNs" id="jMC-6g-QbC"/>
-                                            <segue destination="9bd-RF-zhi" kind="custom" customClass="SegueRight" customModule="SightWords" customModuleProvider="target" id="Lzh-ib-ox3"/>
+                                            <segue destination="9bd-RF-zhi" kind="custom" identifier="SelectStudent" customClass="SegueRight" customModule="SightWords" customModuleProvider="target" id="Lzh-ib-ox3"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -278,6 +278,6 @@
         <segue reference="7Fa-5B-WJd"/>
         <segue reference="RsR-tj-TzW"/>
         <segue reference="Opy-T5-2jN"/>
-        <segue reference="PZn-8z-mLw"/>
+        <segue reference="Lzh-ib-ox3"/>
     </inferredMetricsTieBreakers>
 </document>

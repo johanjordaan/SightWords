@@ -19,6 +19,19 @@
 		9816E8A722E91B5400A26C5E /* SegueRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A622E91B5400A26C5E /* SegueRight.swift */; };
 		9816E8A922E92BE800A26C5E /* LeftRightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A822E92BE800A26C5E /* LeftRightViewController.swift */; };
 		98A8C24222FD407300DDC501 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A8C24122FD407300DDC501 /* StudentViewController.swift */; };
+		98A8C24522FE498700DDC501 /* StudentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A8C24422FE498700DDC501 /* StudentsTests.swift */; };
+		98A8C24622FE4AF400DDC501 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A8C24122FD407300DDC501 /* StudentViewController.swift */; };
+		98A8C24722FE4B4800DDC501 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E87322E8374B00A26C5E /* LeftViewController.swift */; };
+		98A8C24822FE4B4C00DDC501 /* RightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A222E8386D00A26C5E /* RightViewController.swift */; };
+		98A8C24922FE4B5000DDC501 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2AEB322E97C9B004854FE /* MainViewController.swift */; };
+		98A8C24A22FE4B5400DDC501 /* LeftRightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A822E92BE800A26C5E /* LeftRightViewController.swift */; };
+		98A8C24B22FE4B5700DDC501 /* SegueRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A622E91B5400A26C5E /* SegueRight.swift */; };
+		98A8C24C22FE8E3900DDC501 /* SightWordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BFCD4D22EECE0100AA111F /* SightWordManager.swift */; };
+		98A8C24D22FE8E4D00DDC501 /* SightWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BFCD5222EFA17100AA111F /* SightWord.swift */; };
+		98A8C24E22FE8E5400DDC501 /* Students.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB13AF22F26D3C006D228A /* Students.swift */; };
+		98A8C24F22FE8E7300DDC501 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB13A322F147A7006D228A /* Words.swift */; };
+		98A8C25022FE8E8F00DDC501 /* DataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB13A922F23A8B006D228A /* DataContext.swift */; };
+		98A8C25122FE8E9500DDC501 /* SeededGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB139C22EFCFCB006D228A /* SeededGenerator.swift */; };
 		98BB139822EFCD56006D228A /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BB139722EFCD56006D228A /* GameplayKit.framework */; };
 		98BB139D22EFCFCB006D228A /* SeededGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB139C22EFCFCB006D228A /* SeededGenerator.swift */; };
 		98BB139F22EFD01F006D228A /* SeededGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB139E22EFD01F006D228A /* SeededGeneratorTests.swift */; };
@@ -81,6 +94,7 @@
 		9816E8A622E91B5400A26C5E /* SegueRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueRight.swift; sourceTree = "<group>"; };
 		9816E8A822E92BE800A26C5E /* LeftRightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftRightViewController.swift; sourceTree = "<group>"; };
 		98A8C24122FD407300DDC501 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
+		98A8C24422FE498700DDC501 /* StudentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsTests.swift; sourceTree = "<group>"; };
 		98BB139722EFCD56006D228A /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
 		98BB139C22EFCFCB006D228A /* SeededGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededGenerator.swift; sourceTree = "<group>"; };
 		98BB139E22EFD01F006D228A /* SeededGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededGeneratorTests.swift; sourceTree = "<group>"; };
@@ -168,6 +182,7 @@
 		9816E88822E8374D00A26C5E /* SightWordsTests */ = {
 			isa = PBXGroup;
 			children = (
+				98A8C24322FE495F00DDC501 /* model */,
 				98BB13A122EFD5CE006D228A /* utils */,
 				9816E88B22E8374D00A26C5E /* Info.plist */,
 				98BFCD4F22EF9DFC00AA111F /* SightWordManagerTests.swift */,
@@ -183,6 +198,14 @@
 				9816E89622E8374D00A26C5E /* Info.plist */,
 			);
 			path = SightWordsUITests;
+			sourceTree = "<group>";
+		};
+		98A8C24322FE495F00DDC501 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				98A8C24422FE498700DDC501 /* StudentsTests.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		98BB139622EFCD56006D228A /* Frameworks */ = {
@@ -410,6 +433,7 @@
 				98BFCD5622EFA36E00AA111F /* SightWordTests.swift in Sources */,
 				98BB13B122F26D3C006D228A /* Students.swift in Sources */,
 				98BFCD5422EFA17100AA111F /* SightWord.swift in Sources */,
+				98A8C24522FE498700DDC501 /* StudentsTests.swift in Sources */,
 				98BFCD5122EF9F9400AA111F /* SightWordManager.swift in Sources */,
 				98BB13A022EFD021006D228A /* SeededGenerator.swift in Sources */,
 				98BFCD5022EF9DFC00AA111F /* SightWordManagerTests.swift in Sources */,
@@ -421,9 +445,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98A8C24A22FE4B5400DDC501 /* LeftRightViewController.swift in Sources */,
+				98A8C24922FE4B5000DDC501 /* MainViewController.swift in Sources */,
+				98A8C24622FE4AF400DDC501 /* StudentViewController.swift in Sources */,
+				98A8C24E22FE8E5400DDC501 /* Students.swift in Sources */,
 				98D0C06122F3F6FA0044D0CB /* StudentCell.swift in Sources */,
+				98A8C24B22FE4B5700DDC501 /* SegueRight.swift in Sources */,
 				98D0C05E22F3F0E40044D0CB /* StudentsViewController.swift in Sources */,
+				98A8C25022FE8E8F00DDC501 /* DataContext.swift in Sources */,
+				98A8C24722FE4B4800DDC501 /* LeftViewController.swift in Sources */,
 				9816E89522E8374D00A26C5E /* SightWordsUITests.swift in Sources */,
+				98A8C24822FE4B4C00DDC501 /* RightViewController.swift in Sources */,
+				98A8C24F22FE8E7300DDC501 /* Words.swift in Sources */,
+				98A8C25122FE8E9500DDC501 /* SeededGenerator.swift in Sources */,
+				98A8C24D22FE8E4D00DDC501 /* SightWord.swift in Sources */,
+				98A8C24C22FE8E3900DDC501 /* SightWordManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

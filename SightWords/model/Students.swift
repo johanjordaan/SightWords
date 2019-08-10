@@ -14,7 +14,7 @@ class StudentDOA {
     
     public static func GetAll() throws -> [Student] {
         let context = DataContext.shared.context
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Students")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DBStudents")
         request.returnsObjectsAsFaults = false
         let result = try context.fetch(request)
         let retVal  = (result as! [NSManagedObject]).map {(dbStudent:NSManagedObject)->Student in
@@ -25,7 +25,7 @@ class StudentDOA {
     
     public static func Create(student: Student) throws -> Student {
         let context = DataContext.shared.context
-        let studentEntity = NSEntityDescription.entity(forEntityName: "Students", in: context)
+        let studentEntity = NSEntityDescription.entity(forEntityName: "DBStudents", in: context)
         let dbStudent = NSManagedObject(entity: studentEntity!, insertInto: context)
         dbStudent.setValue(student.id, forKey: "id")
         dbStudent.setValue(student.name, forKey: "name")
@@ -33,9 +33,16 @@ class StudentDOA {
         return student
     }
     
+    public static func DeleteAll() throws {
+        let context = DataContext.shared.context
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DBStudents")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        try context.execute(deleteRequest)
+    }
+    
     public static func Delete(student: Student) throws -> Student {
         let context = DataContext.shared.context
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Students")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DBStudents")
         request.predicate = NSPredicate(format:"id=%@",student.id)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
         try context.execute(deleteRequest)
@@ -44,7 +51,7 @@ class StudentDOA {
     
     public static func Update(student: Student) throws -> Student {
         let context = DataContext.shared.context
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Students")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DBStudents")
         request.returnsObjectsAsFaults = false
         let dbStudents = try context.fetch(request)
         for dbStudent in dbStudents as! [NSManagedObject] {
@@ -68,37 +75,31 @@ class Student {
 
 class Students {
 
-    var students:[Student]?
-    
     private init() {
-        self.students = nil
     }
     static let shared = Students()
     
     public func getAll() throws -> [Student] {
-        if(self.students==nil) {
-            self.students = try StudentDOA.GetAll()
-        }
-        return self.students!
+        return try StudentDOA.GetAll()
     }
 
     public func add(newStudent:Student) throws -> [Student] {
-        if(self.students==nil) {
-            self.students = try self.getAll()
-        }
         let _ = try StudentDOA.Create(student: newStudent)
-        self.students?.append(newStudent)
-        return self.students!
+        return try self.getAll()
     }
     
     public func delete(student:Student) throws -> [Student] {
         let _ = try StudentDOA.Delete(student: student)
-        self.students?.removeAll {$0.id==student.id}
-        return self.students!
+        return try self.getAll()
+    }
+    
+    public func deleteAll() throws -> [Student] {
+        try StudentDOA.DeleteAll()
+        return try self.getAll()
     }
 
     public func update(student:Student) throws -> [Student] {
         let _ = try StudentDOA.Update(student: student)
-        return self.students!
+        return try self.getAll()
     }
 }

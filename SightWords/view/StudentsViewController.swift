@@ -21,6 +21,8 @@ class StudentsViewController: UIViewController {
     private let itemsPerRow: CGFloat = 1
 
     
+    private var students:[Student] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -28,7 +30,12 @@ class StudentsViewController: UIViewController {
         
         navBar.title = "xxx"
         navBar.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(onAdd))
-
+        
+        do {
+            students = try Students.shared.getAll()
+        } catch {
+            students = []
+        }
     }
     
     @objc func onAdd(_ sender: UIBarButtonItem) {
@@ -45,6 +52,12 @@ class StudentsViewController: UIViewController {
         {
             if let destinationVC = segue.destination as? StudentViewController {
                 destinationVC.mode = StudentViewController.Mode.add
+                destinationVC.student = Student(name: "")
+            }
+        } else if segue.identifier == "SelectStudent" {
+            let s = sender as! StudentCell
+            if let destinationVC = segue.destination as? MainViewController {
+                destinationVC.student = s.student
             }
         }
      }
@@ -57,7 +70,7 @@ extension StudentsViewController:UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return students.count
     }
     
     func collectionView(
@@ -69,7 +82,8 @@ extension StudentsViewController:UICollectionViewDataSource {
                                                       for: indexPath) as! StudentCell
         
         cell.backgroundColor = .blue
-        cell.Name.text = String(indexPath.row)
+        cell.Name.text = students[indexPath.row].name
+        cell.student = students[indexPath.row]
         
         return cell
     }
