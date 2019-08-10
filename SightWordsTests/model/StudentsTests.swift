@@ -30,6 +30,14 @@ class StudentsTests: XCTestCase {
         do {
             let students = try Students.shared.getAll()
             XCTAssertEqual(students.count,0)
+            let newStudent = Student(name:"Abigail")
+            let students2 = try Students.shared.add(newStudent: newStudent)
+            XCTAssertEqual(students2.count,1)
+            let students3 = try Students.shared.getAll()
+            XCTAssertEqual(newStudent.id,students3[0].id)
+            XCTAssertEqual(students2[0].id,students3[0].id)
+            XCTAssertEqual(students2[0].name,students3[0].name)
+            
         } catch {
             XCTFail()
         }
