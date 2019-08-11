@@ -13,7 +13,12 @@ class StudentViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var actionButton: UIButton!
-    @IBAction func onClick(_ sender: Any) {
+
+    @IBAction func onClickDelete(_ sender: Any) {
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func onClickAction(_ sender: Any) {
         student!.name = name.text!
         do {
             if(mode==Mode.add) {
@@ -34,6 +39,17 @@ class StudentViewController: UIViewController {
     public var mode = Mode.edit;
     public var student:Student?
     
+    
+    let alertController = UIAlertController(title: "Alert", message: "This is an alert.", preferredStyle: .alert)
+    
+    let action1 = UIAlertAction(title: "Delete", style: .default) { (action:UIAlertAction) in
+        self.goBack()
+    }
+    
+    let action2 = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,8 +62,11 @@ class StudentViewController: UIViewController {
             actionButton.setTitle("Add",for: .normal)
         }
         
-        
         name.text = student!.name
+        
+        alertController.addAction(action1)
+        alertController.addAction(action2)
+        
     }
 
     func goBack() {

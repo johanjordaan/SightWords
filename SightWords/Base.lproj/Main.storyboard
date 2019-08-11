@@ -243,12 +243,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ij-LR-aC6">
-                                <rect key="frame" x="155" y="326" width="86" height="48"/>
+                                <rect key="frame" x="157" y="326" width="83" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Action"/>
                                 <connections>
-                                    <action selector="onClick:" destination="Wdk-re-iHa" eventType="touchUpInside" id="Oyb-cp-ml4"/>
+                                    <action selector="onClickAction:" destination="Wdk-re-iHa" eventType="touchUpInside" id="9YY-Mu-jCg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Je-Nz-aqo">
+                                <rect key="frame" x="140" y="483" width="84" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="onClickDelete:" destination="Wdk-re-iHa" eventType="touchUpInside" id="UTM-H9-mja"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -278,6 +287,6 @@
         <segue reference="7Fa-5B-WJd"/>
         <segue reference="RsR-tj-TzW"/>
         <segue reference="Opy-T5-2jN"/>
-        <segue reference="Lzh-ib-ox3"/>
+        <segue reference="PZn-8z-mLw"/>
     </inferredMetricsTieBreakers>
 </document>
