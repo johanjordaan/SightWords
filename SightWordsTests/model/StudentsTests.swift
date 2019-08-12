@@ -89,7 +89,25 @@ class StudentsTests: XCTestCase {
         }
     }
 
-    
+    func testGetSetSelected() {
+        do {
+            let abigail = Student(name:"Abigail")
+            let lily = Student(name:"Lily")
+            let _ =  try Students.shared.add(newStudent: abigail)
+            let _ =  try Students.shared.add(newStudent: lily)
+            
+            XCTAssertNil(Students.shared.getSelected())
+            
+            let _ = Students.shared.setSelect(student: lily)
+            XCTAssertEqual(Students.shared.getSelected()!.name,"Lily")
+            
+            let _ = Students.shared.setSelect(student: nil)
+            XCTAssertNil(Students.shared.getSelected())
+            
+        } catch {
+            XCTFail()
+        }
+    }
     
 
     func testPerformanceExample() {

@@ -82,6 +82,7 @@ class Student {
 
 class Students {
 
+    private var selectedStudent:Student?
     private init() {
     }
     static let shared = Students()
@@ -109,4 +110,15 @@ class Students {
         let _ = try StudentDOA.Update(student: student)
         return try self.getAll()
     }
+    
+    public func setSelect(student:Student?) -> Student? {
+        self.selectedStudent = student
+        return self.getSelected()
+    }
+    
+    public func getSelected() -> Student? {
+        return self.selectedStudent
+    }
+    
+    
 }

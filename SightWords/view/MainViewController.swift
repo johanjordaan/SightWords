@@ -16,6 +16,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        student = Students.shared.getSelected()
+        
+        navBar.title = student!.name
+        
         navBar.title = student!.name
         navBar.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(onBack))
         navBar.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(onEdit))
@@ -40,12 +44,7 @@ class MainViewController: UIViewController {
         // Pass the selected object to the new view controller.
         //   let name  = segue.identifier!
         
-        if segue.identifier == "EditStudent"
-        {
-            if let destinationVC = segue.destination as? StudentViewController {
-                destinationVC.mode = StudentViewController.Mode.edit
-                destinationVC.student = student
-            }
+        if segue.identifier == "EditStudent" {
         }
     }
 

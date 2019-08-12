@@ -50,15 +50,10 @@ class StudentsViewController: UIViewController {
         
         if segue.identifier == "AddStudent"
         {
-            if let destinationVC = segue.destination as? StudentViewController {
-                destinationVC.mode = StudentViewController.Mode.add
-                destinationVC.student = Student(name: "")
-            }
+            let _ = Students.shared.setSelect(student: nil)
         } else if segue.identifier == "SelectStudent" {
             let s = sender as! StudentCell
-            if let destinationVC = segue.destination as? MainViewController {
-                destinationVC.student = s.student
-            }
+            let _ = Students.shared.setSelect(student: s.student)
         }
      }
 }

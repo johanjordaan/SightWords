@@ -36,39 +36,55 @@ class StudentViewController: UIViewController {
         case edit
         case add
     }
-    public var mode = Mode.edit;
+    public var mode = Mode.edit
     public var student:Student?
     
-    
-    let alertController = UIAlertController(title: "Alert", message: "This is an alert.", preferredStyle: .alert)
-    
-    let action1 = UIAlertAction(title: "Delete", style: .default) { (action:UIAlertAction) in
-        self.goBack()
-    }
-    
-    let action2 = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
-    }
-    
+    let alertController = UIAlertController(title: "Delete?", message: "Are you sure you want to delete this student. This action cannot be reversed.", preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navBar.title = student!.name
-        navBar.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(onBack))
+        student = Students.shared.getSelected()
+        mode = Mode.edit
+        actionButton.setTitle("Update",for: .normal)
         
-        if(mode == Mode.edit) {
-            actionButton.setTitle("Update",for: .normal)
-        } else if(mode == Mode.add) {
+        if(student == nil) {
+            student = Student(name:"")
+            mode = Mode.add
             actionButton.setTitle("Add",for: .normal)
         }
-        
         name.text = student!.name
+
+        
+        
+        navBar.title = student!.name
+        
+        navBar.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(onBack))
+        
+        
+        let action1 = UIAlertAction(title: "Delete", style: .default) { (action:UIAlertAction) in
+            self.deleteAndGoHome()
+        }
+        
+        let action2 = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
+        }
         
         alertController.addAction(action1)
         alertController.addAction(action2)
         
     }
 
+    func deleteAndGoHome() {
+        do {
+            let _ = try Students.shared.delete(student: self.student!)
+            let _ = Students.shared.setSelect(student: nil)
+            performSegue(withIdentifier: "BackFromAdd", sender: self)
+        } catch {
+            
+        }
+    }
+
+    
     func goBack() {
         if(mode==Mode.add) {
             performSegue(withIdentifier: "BackFromAdd", sender: self)
@@ -83,11 +99,7 @@ class StudentViewController: UIViewController {
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "BackFromEdit"
-        {
-            if let destinationVC = segue.destination as? MainViewController {
-                destinationVC.student = student
-            }
+        if segue.identifier == "BackFromEdit" {
         } else if segue.identifier == "BackFromAdd" {
         }
     }

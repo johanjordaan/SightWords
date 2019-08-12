@@ -13,7 +13,6 @@
 		9816E87A22E8374B00A26C5E /* SightWords.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9816E87822E8374B00A26C5E /* SightWords.xcdatamodeld */; };
 		9816E87C22E8374D00A26C5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9816E87B22E8374D00A26C5E /* Assets.xcassets */; };
 		9816E87F22E8374D00A26C5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9816E87D22E8374D00A26C5E /* LaunchScreen.storyboard */; };
-		9816E89522E8374D00A26C5E /* SightWordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E89422E8374D00A26C5E /* SightWordsUITests.swift */; };
 		9816E8A322E8386D00A26C5E /* RightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A222E8386D00A26C5E /* RightViewController.swift */; };
 		9816E8A522E91AF100A26C5E /* SegueLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A422E91AF100A26C5E /* SegueLeft.swift */; };
 		9816E8A722E91B5400A26C5E /* SegueRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A622E91B5400A26C5E /* SegueRight.swift */; };
@@ -32,6 +31,11 @@
 		98A8C24F22FE8E7300DDC501 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB13A322F147A7006D228A /* Words.swift */; };
 		98A8C25022FE8E8F00DDC501 /* DataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB13A922F23A8B006D228A /* DataContext.swift */; };
 		98A8C25122FE8E9500DDC501 /* SeededGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB139C22EFCFCB006D228A /* SeededGenerator.swift */; };
+		98A8C2522300FC6000DDC501 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB13A622F15C39006D228A /* Session.swift */; };
+		98A8C2532300FC6100DDC501 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB13A622F15C39006D228A /* Session.swift */; };
+		98A8C2552300FC7800DDC501 /* SegueLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E8A422E91AF100A26C5E /* SegueLeft.swift */; };
+		98A8C2562300FC8200DDC501 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E87122E8374B00A26C5E /* AppDelegate.swift */; };
+		98A8C2572300FCA800DDC501 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816E87122E8374B00A26C5E /* AppDelegate.swift */; };
 		98BB139822EFCD56006D228A /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BB139722EFCD56006D228A /* GameplayKit.framework */; };
 		98BB139D22EFCFCB006D228A /* SeededGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB139C22EFCFCB006D228A /* SeededGenerator.swift */; };
 		98BB139F22EFD01F006D228A /* SeededGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB139E22EFD01F006D228A /* SeededGeneratorTests.swift */; };
@@ -87,7 +91,6 @@
 		9816E88522E8374D00A26C5E /* SightWordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SightWordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9816E88B22E8374D00A26C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9816E89022E8374D00A26C5E /* SightWordsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SightWordsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9816E89422E8374D00A26C5E /* SightWordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightWordsUITests.swift; sourceTree = "<group>"; };
 		9816E89622E8374D00A26C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9816E8A222E8386D00A26C5E /* RightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightViewController.swift; sourceTree = "<group>"; };
 		9816E8A422E91AF100A26C5E /* SegueLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueLeft.swift; sourceTree = "<group>"; };
@@ -194,7 +197,6 @@
 		9816E89322E8374D00A26C5E /* SightWordsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				9816E89422E8374D00A26C5E /* SightWordsUITests.swift */,
 				9816E89622E8374D00A26C5E /* Info.plist */,
 			);
 			path = SightWordsUITests;
@@ -428,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98A8C2572300FCA800DDC501 /* AppDelegate.swift in Sources */,
 				98BB13A522F1492B006D228A /* Words.swift in Sources */,
 				98BB13AB22F23A8B006D228A /* DataContext.swift in Sources */,
 				98BFCD5622EFA36E00AA111F /* SightWordTests.swift in Sources */,
@@ -435,6 +438,7 @@
 				98BFCD5422EFA17100AA111F /* SightWord.swift in Sources */,
 				98A8C24522FE498700DDC501 /* StudentsTests.swift in Sources */,
 				98BFCD5122EF9F9400AA111F /* SightWordManager.swift in Sources */,
+				98A8C2522300FC6000DDC501 /* Session.swift in Sources */,
 				98BB13A022EFD021006D228A /* SeededGenerator.swift in Sources */,
 				98BFCD5022EF9DFC00AA111F /* SightWordManagerTests.swift in Sources */,
 				98BB139F22EFD01F006D228A /* SeededGeneratorTests.swift in Sources */,
@@ -454,12 +458,14 @@
 				98D0C05E22F3F0E40044D0CB /* StudentsViewController.swift in Sources */,
 				98A8C25022FE8E8F00DDC501 /* DataContext.swift in Sources */,
 				98A8C24722FE4B4800DDC501 /* LeftViewController.swift in Sources */,
-				9816E89522E8374D00A26C5E /* SightWordsUITests.swift in Sources */,
 				98A8C24822FE4B4C00DDC501 /* RightViewController.swift in Sources */,
 				98A8C24F22FE8E7300DDC501 /* Words.swift in Sources */,
+				98A8C2562300FC8200DDC501 /* AppDelegate.swift in Sources */,
+				98A8C2532300FC6100DDC501 /* Session.swift in Sources */,
 				98A8C25122FE8E9500DDC501 /* SeededGenerator.swift in Sources */,
 				98A8C24D22FE8E4D00DDC501 /* SightWord.swift in Sources */,
 				98A8C24C22FE8E3900DDC501 /* SightWordManager.swift in Sources */,
+				98A8C2552300FC7800DDC501 /* SegueLeft.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +561,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
