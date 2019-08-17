@@ -10,7 +10,7 @@ const fileTemplate = (words,d=new Date())=> `
 //
 import Foundation
 
-let words = [
+let baseWords = [
   ${words.map(([rank,word])=>wordTemplate(rank,word)).join(',\n  ')}
 ]
 `
@@ -23,7 +23,7 @@ const top = (limit, rows) => {
   return rows.filter(i=>Number(i[0])<=limit)
 }
 
-const selectedWords = top(5,rows)
+const selectedWords = top(500,rows)
 
 const code = fileTemplate(selectedWords)
 fs.writeFileSync('../SightWords/data/Words.swift',code)

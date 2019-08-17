@@ -32,7 +32,7 @@ class StudentsViewController: UIViewController {
         navBar.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(onAdd))
         
         do {
-            students = try Students.shared.getAll()
+            //students = try Students.shared.getAll()
         } catch {
             students = []
         }
@@ -50,10 +50,10 @@ class StudentsViewController: UIViewController {
         
         if segue.identifier == "AddStudent"
         {
-            let _ = Students.shared.setSelect(student: nil)
+            //let _ = Students.shared.setSelect(student: nil)
         } else if segue.identifier == "SelectStudent" {
             let s = sender as! StudentCell
-            let _ = Students.shared.setSelect(student: s.student)
+            //let _ = Students.shared.setSelect(student: s.student)
         }
      }
 }

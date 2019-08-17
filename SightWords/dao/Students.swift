@@ -8,29 +8,100 @@
 
 import Foundation
 import CoreData
-
-
+/*
 class StudentDOA {
+    private static func extractSightWords(dbStudent:DBStudents) -> [SightWord] {
+        
+        if let dbSightWords = dbStudent.words {
+            let sightWords = dbSightWords.map {
+                (dbSightWord)->SightWord in do {
+                    let x = dbSightWord as! DBStudentWords
+                    return SightWord(
+                        word: x.word!,
+                        rank: Int(x.rank),
+                        level: Int(x.level),
+                        correctCount: Int(x.correctCount),
+                        incorrectCount: Int(x.incorrectCount),
+                        lastReviewed: x.lastReviewed!
+                    )
+                }
+            }
+            
+            return sightWords
+            
+        } else {
+            return []
+        }
+        
+    }
+    
     
     public static func GetAll() throws -> [Student] {
         let context = DataContext.shared.context
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DBStudents")
         request.returnsObjectsAsFaults = false
         let result = try context.fetch(request)
-        let retVal  = (result as! [NSManagedObject]).map {(dbStudent:NSManagedObject)->Student in
-            return Student(id:dbStudent.value(forKey: "id") as! String, name:dbStudent.value(forKey: "name") as! String)
+        
+        let retVal  = (result as! [DBStudent]).map {
+            (dbStudent:DBStudent)->Student in
+                return Student(
+                    id:dbStudent.id,
+                    name:dbStudent.name!,
+                    words: StudentDOA.extractSightWords(dbStudent:dbStudent)
+                )
         }
         return retVal
     }
     
     public static func Create(student: Student) throws -> Student {
         let context = DataContext.shared.context
-        let studentEntity = NSEntityDescription.entity(forEntityName: "DBStudents", in: context)
+        
+        let dbStudent = DBStudent(context:context)
+        dbStudent.id = student.id
+        dbStudent.name = student.name
+        
+        for word in student.words {
+            let dbWord = DBStudentWords(context: context)
+            dbWord.word = word.word
+            dbWord.rank = Int16(word.rank)
+            dbWord.level = Int16(word.level)
+            dbWord.correctCount = Int16(word.correctCount)
+            dbWord.incorrectCount = Int16(word.incorrectCount)
+            dbWord.lastReviewed = word.lastReviewed
+            
+            dbStudent.addToWords(dbWord)
+        }
+        
+        try context.save()
+        return student
+
+        
+        
+        /*let studentEntity = NSEntityDescription.entity(forEntityName: "DBStudents", in: context)
         let dbStudent = NSManagedObject(entity: studentEntity!, insertInto: context)
         dbStudent.setValue(student.id, forKey: "id")
         dbStudent.setValue(student.name, forKey: "name")
-        try context.save()
-        return student
+        
+        
+        let studentWordEntity = NSEntityDescription.entity(forEntityName: "DBStudentWords", in: context)
+        let dbStudentWords:[NSManagedObject] = student.words.map {
+            (word:SightWord) -> NSManagedObject in do {
+                let dbWord = NSManagedObject(entity: studentWordEntity!, insertInto: context)
+                dbWord.setValue(word.word,forKey: "word")
+                dbWord.setValue(word.rank,forKey: "rank")
+                dbWord.setValue(word.level,forKey: "level")
+                dbWord.setValue(word.correctCount,forKey: "correctCount")
+                dbWord.setValue(word.incorrectCount,forKey: "incorrectCount")
+                dbWord.setValue(word.lastReviewed,forKey: "lastReviewed")
+                return dbWord
+            }
+        }
+
+        let dbWords = dbStudent.mutableSetValue(forKey: "words")
+        for dbWord in dbStudentWords {
+            dbWords.add(dbWord)
+        }
+        */
     }
     
     public static func DeleteAll() throws {
@@ -62,22 +133,6 @@ class StudentDOA {
         return student
     }
 
-}
-
-class Student {
-    var id:String
-    var name:String
-    
-    
-    public init(id:String,name:String) {
-        self.id = id
-        self.name = name
-    }
-    
-    public init(name:String) {
-        self.id = NSUUID().uuidString
-        self.name = name
-    }
 }
 
 class Students {
@@ -120,5 +175,5 @@ class Students {
         return self.selectedStudent
     }
     
-    
 }
+*/

@@ -13,7 +13,8 @@ class StudentViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var actionButton: UIButton!
-
+    @IBOutlet weak var deleteButton: CustomUIButton!
+    
     @IBAction func onClickDelete(_ sender: Any) {
         self.present(alertController, animated: true, completion: nil)
     }
@@ -22,9 +23,9 @@ class StudentViewController: UIViewController {
         student!.name = name.text!
         do {
             if(mode==Mode.add) {
-                let _ = try Students.shared.add(newStudent: student!)
+                //let _ = try Students.shared.add(newStudent: student!)
             } else if(mode==Mode.edit) {
-                let _ = try Students.shared.update(student: student!)
+                //let _ = try Students.shared.update(student: student!)
             }
         } catch {
         }
@@ -44,7 +45,7 @@ class StudentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        student = Students.shared.getSelected()
+        //student = Students.shared.getSelected()
         mode = Mode.edit
         actionButton.setTitle("Update",for: .normal)
         
@@ -52,6 +53,7 @@ class StudentViewController: UIViewController {
             student = Student(name:"")
             mode = Mode.add
             actionButton.setTitle("Add",for: .normal)
+            deleteButton.isHidden = true
         }
         name.text = student!.name
 
@@ -76,8 +78,8 @@ class StudentViewController: UIViewController {
 
     func deleteAndGoHome() {
         do {
-            let _ = try Students.shared.delete(student: self.student!)
-            let _ = Students.shared.setSelect(student: nil)
+            //let _ = try Students.shared.delete(student: self.student!)
+            //let _ = Students.shared.setSelect(student: nil)
             performSegue(withIdentifier: "BackFromAdd", sender: self)
         } catch {
             

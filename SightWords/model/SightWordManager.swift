@@ -34,9 +34,9 @@ class SightWordManager {
     
     public func next() -> SightWord {
         SightWordManager.semphore.wait()
-        let retVal = words[SightWordManager.currentIndex]
+        let retVal = baseWords[SightWordManager.currentIndex]
         SightWordManager.currentIndex += 1
-        if(SightWordManager.currentIndex>=words.count) {
+        if(SightWordManager.currentIndex>=baseWords.count) {
             SightWordManager.currentIndex = 0
         }
         SightWordManager.semphore.signal()

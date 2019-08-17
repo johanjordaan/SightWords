@@ -34,7 +34,7 @@ class SiteWordManagerTests: XCTestCase {
         let swm = SightWordManager.shared
         swm.reset()
         swm.shuffle()
-        XCTAssertEqual(swm.next().word,words[0].word)
+        XCTAssertEqual(swm.next().word,baseWords[0].word)
     }
     
     func testNext() {
@@ -49,11 +49,11 @@ class SiteWordManagerTests: XCTestCase {
         swm.reset()
 
         var next = swm.next()
-        for _ in 1...words.count {
+        for _ in 1...baseWords.count {
          next = swm.next()
         }
         
-        XCTAssertEqual(next.word,words[0].word)
+        XCTAssertEqual(next.word,baseWords[0].word)
     }
 
     

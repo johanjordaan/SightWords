@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/johanjordaan/projects/SightWords/SightWordsTests/SightWordManagerTests.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/johanjordaan/projects/SightWords/SightWordsTests/SightWordTests.swift">
+   </FileRef>
+   <FileRef
       location = "self:/Users/johanjordaan/projects/SightWords/SightWords.xcodeproj">
    </FileRef>
 </Workspace>

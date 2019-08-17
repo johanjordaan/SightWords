@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        student = Students.shared.getSelected()
+        //student = Students.shared.getSelected()
         
         navBar.title = student!.name
         

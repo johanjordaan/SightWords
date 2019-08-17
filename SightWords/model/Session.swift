@@ -28,8 +28,8 @@ class Session {
         let wordEndity = NSEntityDescription.entity(forEntityName: "Word", in: context)
         let newWord = NSManagedObject(entity: wordEndity!, insertInto: context)
         
-        newWord.setValue(words[0].word, forKey: "word")
-        newWord.setValue(words[0].rank, forKey: "rank")
+        newWord.setValue(baseWords[0].word, forKey: "word")
+        newWord.setValue(baseWords[0].rank, forKey: "rank")
         
         do {
             try context.save()
