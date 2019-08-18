@@ -44,8 +44,8 @@ class DBStudentWord {
         return retVal;
     }
 
-    public static func Create(context:NSManagedObjectContext,correctCount:Int,id:String,incorrectCount:Int,lastReviewed:Date,level:Int,rank:Int,word:String,student:DBStudent) -> DBStudentWord {
-        let newItem = DBStudentWord(context:context,correctCount:correctCount,id:id,incorrectCount:incorrectCount,lastReviewed:lastReviewed,level:level,rank:rank,word:word,student:student)
+    public static func Create(context:NSManagedObjectContext,correctCount:Int,incorrectCount:Int,lastReviewed:Date,level:Int,rank:Int,word:String,student:DBStudent) -> DBStudentWord {
+        let newItem = DBStudentWord(context:context,correctCount:correctCount,incorrectCount:incorrectCount,lastReviewed:lastReviewed,level:level,rank:rank,word:word,student:student)
         cache.append(newItem)
         cacheLookup[newItem.id] = newItem        
         return newItem
@@ -69,7 +69,7 @@ class DBStudentWord {
         
     }
 
-    private init(context:NSManagedObjectContext,correctCount:Int,id:String,incorrectCount:Int,lastReviewed:Date,level:Int,rank:Int,word:String,student:DBStudent) {
+    private init(context:NSManagedObjectContext,correctCount:Int,incorrectCount:Int,lastReviewed:Date,level:Int,rank:Int,word:String,student:DBStudent) {
         self.context = context
         self.entityDescription = NSEntityDescription.entity(forEntityName: "DBStudentWord", in: self.context)!
         self.id = NSUUID().uuidString

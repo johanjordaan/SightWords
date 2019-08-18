@@ -44,8 +44,8 @@ class DBStudent {
         return retVal;
     }
 
-    public static func Create(context:NSManagedObjectContext,id:String,name:String,words:[DBStudentWord]) -> DBStudent {
-        let newItem = DBStudent(context:context,id:id,name:name,words:words)
+    public static func Create(context:NSManagedObjectContext,name:String,words:[DBStudentWord]) -> DBStudent {
+        let newItem = DBStudent(context:context,name:name,words:words)
         cache.append(newItem)
         cacheLookup[newItem.id] = newItem        
         return newItem
@@ -67,7 +67,7 @@ class DBStudent {
         
     }
 
-    private init(context:NSManagedObjectContext,id:String,name:String,words:[DBStudentWord]) {
+    private init(context:NSManagedObjectContext,name:String,words:[DBStudentWord]) {
         self.context = context
         self.entityDescription = NSEntityDescription.entity(forEntityName: "DBStudent", in: self.context)!
         self.id = NSUUID().uuidString

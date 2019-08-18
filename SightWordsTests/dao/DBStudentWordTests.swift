@@ -7,10 +7,36 @@
 //
 
 import XCTest
+import Foundation
+import CoreData
 
 import SightWords
 
 class DBStudentWordTests: XCTestCase {
+    private static func generateString() -> String {
+      return "test"
+    }
+    private static func generateInt() -> Int {
+      return 99
+    }
+    private static func generateDate() -> Date {
+      return Date.init()
+    }
+
+    public static func CreateTestItem(context:NSManagedObjectContext) throws -> DBStudentWord {
+        let correctCount = generateInt()
+        let incorrectCount = generateInt()
+        let lastReviewed = generateDate()
+        let level = generateInt()
+        let rank = generateInt()
+        let word = generateString()
+      
+        let student = try DBStudentTests.CreateTestItem(context:context)
+
+      
+      return DBStudentWord.Create(context:context,correctCount:correctCount,incorrectCount:incorrectCount,lastReviewed:lastReviewed,level:level,rank:rank,word:word,student:student)       
+    }
+
     override func setUp() {
         do {
             let _ = try DBStudentWord.DeleteAll(context:DataContext.shared.context)
@@ -26,25 +52,26 @@ class DBStudentWordTests: XCTestCase {
             XCTFail()
         }
     }
-/*    
+  
     func testGetAll() {
         do {
-            let students = try Students.shared.getAll()
-            XCTAssertEqual(students.count,0)
-            let newStudent = Student(name:"Abigail")
-            let students2 = try Students.shared.add(newStudent: newStudent)
-            XCTAssertEqual(students2.count,1)
-            let students3 = try Students.shared.getAll()
-            XCTAssertEqual(newStudent.id,students3[0].id)
-            XCTAssertEqual(students2[0].id,students3[0].id)
-            XCTAssertEqual(students2[0].name,students3[0].name)
+            let list = try DBStudentWord.GetAll(context:DataContext.shared.context)
+            XCTAssertEqual(list.count,0)
+            
+            //let newStudent = Student(name:"Abigail")
+            //let students2 = try Students.shared.add(newStudent: newStudent)
+            //XCTAssertEqual(students2.count,1)
+            //let students3 = try Students.shared.getAll()
+            //XCTAssertEqual(newStudent.id,students3[0].id)
+            //XCTAssertEqual(students2[0].id,students3[0].id)
+            //XCTAssertEqual(students2[0].name,students3[0].name)
             
         } catch {
             XCTFail()
         }
 
     }
-    
+/*    
     func testAdd() {
         do {
             let students = try Students.shared.getAll()

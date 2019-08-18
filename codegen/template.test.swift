@@ -1,5 +1,5 @@
 //
-//  DBStudent.swift
+//  <%= entity.name %>.swift
 //  SightWordsTests
 //
 //  Created by Johan Jordaan on 10/8/19.
@@ -12,7 +12,7 @@ import CoreData
 
 import SightWords
 
-class DBStudentTests: XCTestCase {
+class <%= entity.name %>Tests: XCTestCase {
     private static func generateString() -> String {
       return "test"
     }
@@ -23,19 +23,26 @@ class DBStudentTests: XCTestCase {
       return Date.init()
     }
 
-    public static func CreateTestItem(context:NSManagedObjectContext) throws -> DBStudent {
-        let name = generateString()
+    public static func CreateTestItem(context:NSManagedObjectContext) throws -> <%= entity.name %> {
+      <%_ entity.fields.filter(i=>i.name!=='id').filter(i=>!i.isrelstionship&&!i.hasMany).forEach((p)=>{ -%>
+        let <%= p.name %> = generate<%=p.type%>()
+      <%_ }) -%>
       
+      <%_ entity.fields.filter(i=>i.isrelstionship&&!i.hasMany).forEach((p)=>{ -%>
+        let <%= p.name %> = try <%= p.itemType %>Tests.CreateTestItem(context:context)
+      <%_ }) -%>
 
-        var words:[DBStudentWord] = []
-        words.append(try DBStudentWordTests.CreateTestItem(context:context))
+      <%_ entity.fields.filter(i=>i.isrelstionship&&i.hasMany).forEach((p)=>{ -%>
+        var <%= p.name %>:[<%= p.itemType %>] = []
+        <%= p.name %>.append(try <%= p.itemType %>Tests.CreateTestItem(context:context))
+      <%_ }) -%>
       
-      return DBStudent.Create(context:context,name:name,words:words)       
+      return <%= entity.name %>.Create(context:context,<%= entity.fields.filter(i=>i.name!='id').map(i=>`${i.name}:${i.name}`).join(',') %>)       
     }
 
     override func setUp() {
         do {
-            let _ = try DBStudent.DeleteAll(context:DataContext.shared.context)
+            let _ = try <%= entity.name %>.DeleteAll(context:DataContext.shared.context)
         } catch {
             XCTFail()
         }
@@ -43,7 +50,7 @@ class DBStudentTests: XCTestCase {
 
     override func tearDown() {
         do {
-            let _ = try DBStudent.DeleteAll(context:DataContext.shared.context)
+            let _ = try <%= entity.name %>.DeleteAll(context:DataContext.shared.context)
         } catch {
             XCTFail()
         }
@@ -51,11 +58,16 @@ class DBStudentTests: XCTestCase {
   
     func testGetAll() {
         do {
-            let list = try DBStudent.GetAll(context:DataContext.shared.context)
+            let list = try <%= entity.name %>.GetAll(context:DataContext.shared.context)
             XCTAssertEqual(list.count,0)
-            let newStudent = try DBStudentTests.CreateTestItem(context:DataContext.shared.context)
-            let students3 = try DBStudent.GetAll(context:DataContext.shared.context)
-            XCTAssertEqual(newStudent.getId(),students3[0].getId())
+            
+            //let newStudent = Student(name:"Abigail")
+            //let students2 = try Students.shared.add(newStudent: newStudent)
+            //XCTAssertEqual(students2.count,1)
+            //let students3 = try Students.shared.getAll()
+            //XCTAssertEqual(newStudent.id,students3[0].id)
+            //XCTAssertEqual(students2[0].id,students3[0].id)
+            //XCTAssertEqual(students2[0].name,students3[0].name)
             
         } catch {
             XCTFail()
